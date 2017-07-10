@@ -9,6 +9,8 @@ RUN mkdir -p /var/log/supervisor
 
 COPY set-exim4-update-conf /usr/local/bin/
 COPY entrypoint.sh /usr/local/bin/
+RUN ["chmod", "+x", "/usr/local/bin/entrypoint.sh"]
+RUN ["chmod", "+x", "/usr/local/bin/set-exim4-update-conf"]
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 RUN echo "[supervisord]" > /etc/supervisord.conf && \
