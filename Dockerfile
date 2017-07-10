@@ -22,4 +22,4 @@ RUN echo "[supervisord]" > /etc/supervisord.conf && \
     echo "[program:apache2]" >> /etc/supervisord.conf && \
     echo "command=/usr/local/bin/apache2-foreground" >> /etc/supervisord.conf
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
