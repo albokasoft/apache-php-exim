@@ -2,9 +2,11 @@ FROM php:5.6-apache
 
 MAINTAINER Arturo Prieto <aprieto@albokasoft.com>
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && apt-get install -y exim4-daemon-light supervisor
 RUN apt-get purge php.*
-RUN apt-get install -y php5
+RUN apt-get install -yf php5
 #&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /var/log/supervisor
