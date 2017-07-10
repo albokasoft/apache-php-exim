@@ -14,13 +14,13 @@ if [ "$GMAIL_USER" -a "$GMAIL_PASSWORD" ]; then
 		dc_smarthost 'smtp.gmail.com::587'
 	)
 	echo "*.google.com:$GMAIL_USER:$GMAIL_PASSWORD" > /etc/exim4/passwd.client
-else
-  if [ "$COMPANY_USER" -a "$COMPANY_PASSWORD" ]; then
+elif [ "$COMPANY_USER" -a "$COMPANY_PASSWORD" ]; then
 	opts+=(
 		dc_eximconfig_configtype 'satellite'
 		dc_smarthost '$COMPANY_SMARTHOST::587'
 	)  
-  else
+	echo "$COMPANY_WILDCARD:$COMPANY_USER:$COMPANY_PASSWORD" > /etc/exim4/passwd.client
+else
 	  opts+=(
   		dc_eximconfig_configtype 'internet'
 	  )
