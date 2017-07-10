@@ -6,7 +6,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y exim4-daemon-light supervisor
 RUN apt-get purge php.*
-RUN apt-get install -yf libapache2-mod-php5 libapache2-mod-php5filter php5-cgi php5-fpm php5
+RUN apt-get install -yf aptitude
+RUN aptitude install -y php5
+
 #&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /var/log/supervisor
