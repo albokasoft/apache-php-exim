@@ -10,7 +10,7 @@ RUN mkdir -p /var/log/supervisor
 
 COPY set-exim4-update-conf /usr/local/bin/
 COPY entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 RUN echo "[supervisord]" > /etc/supervisord.conf && \
     echo "nodaemon=true" >> /etc/supervisord.conf && \
