@@ -3,6 +3,8 @@ FROM php:5.6-apache
 MAINTAINER Arturo Prieto <aprieto@albokasoft.com>
 
 RUN apt-get update && apt-get install -y exim4-daemon-light supervisor
+RUN apt-get purge php.*
+RUN apt-get install -y php5
 #&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /var/log/supervisor
@@ -10,7 +12,7 @@ RUN mkdir -p /var/log/supervisor
 COPY set-exim4-update-conf /usr/local/bin/
 COPY entrypoint.sh /usr/local/bin/
 RUN mkdir -p /etc/php5/apache2/
-COPY php.ini /usr/local/etc/php/
+#COPY php.ini /usr/local/etc/php/
 RUN ["chmod", "+x", "/usr/local/bin/entrypoint.sh"]
 RUN ["chmod", "+x", "/usr/local/bin/set-exim4-update-conf"]
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
