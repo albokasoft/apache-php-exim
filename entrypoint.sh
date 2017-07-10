@@ -17,7 +17,7 @@ if [ "$GMAIL_USER" -a "$GMAIL_PASSWORD" ]; then
 elif [ "$COMPANY_USER" -a "$COMPANY_PASSWORD" ]; then
 	opts+=(
 		dc_eximconfig_configtype 'satellite'
-		dc_smarthost '$COMPANY_SMARTHOST::587'
+		dc_smarthost "$COMPANY_SMARTHOST::587"
 	)  
 	echo "$COMPANY_WILDCARD:$COMPANY_USER:$COMPANY_PASSWORD" > /etc/exim4/passwd.client
 else
