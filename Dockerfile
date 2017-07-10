@@ -9,6 +9,8 @@ RUN mkdir -p /var/log/supervisor
 
 COPY set-exim4-update-conf /usr/local/bin/
 COPY entrypoint.sh /usr/local/bin/
+RUN mkdir -p /etc/php5/apache2/
+COPY php.ini /usr/local/etc/php/
 RUN ["chmod", "+x", "/usr/local/bin/entrypoint.sh"]
 RUN ["chmod", "+x", "/usr/local/bin/set-exim4-update-conf"]
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
