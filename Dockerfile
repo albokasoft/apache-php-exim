@@ -5,7 +5,7 @@ MAINTAINER Arturo Prieto <aprieto@albokasoft.com>
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y exim4-daemon-light supervisor
-RUN apt-get install -y libapache2-mod-php5 libjson-c2 libonig2 libperl4-corelibs-perl libqdbm14 lsof php5-cli php5-common php5-json php5-readline ucf libapache2-mod-php5 libjson-c2 libonig2 libperl4-corelibs-perl libqdbm14 lsof php5 php5-cli php5-common php5-json php5-readline ucf
+RUN apt-get install -y -o Dpkg::Options::="--force-confdef" libapache2-mod-php5 libjson-c2 libonig2 libperl4-corelibs-perl libqdbm14 lsof php5-cli php5-common php5-json php5-readline ucf libapache2-mod-php5 libjson-c2 libonig2 libperl4-corelibs-perl libqdbm14 lsof php5 php5-cli php5-common php5-json php5-readline ucf
 #RUN apt-get purge php.*
 #RUN apt-get install -yf aptitude
 #RUN aptitude install -y php5
